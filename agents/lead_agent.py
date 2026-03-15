@@ -11,4 +11,7 @@ class LeadAgent:
             api_key=GOOGLE_API_KEY
         )
 
-    def build_prompt(self , user_query )
+    def build_prompt(self , user_query ):
+        system_prompt = """
+You are a Lead Agent 
+        """
