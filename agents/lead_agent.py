@@ -1,6 +1,5 @@
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.messages import SystemMessage, HumanMessage
-
 import os
 
 
@@ -11,7 +10,6 @@ class LeadAgent:
             model="gemini-2.5-flash",
             api_key=GOOGLE_API_KEY
         )
-
     def build_prompt(self, user_query: str, plan: str):
         system_prompt = f"""
 You are a Lead Agent in an AI agent system. Your responsibility is to coordinate the workflow to answer the user's request effectively.
@@ -37,5 +35,4 @@ Provide only the final response to the user.
 
     async def lead(self, user_query: str, plan: str):
         response = await self.llm.ainvoke(self.build_prompt(user_query, plan))
-
         return response.content
